@@ -3,3 +3,44 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', contacts_path %>
+
+<%= form_for(:contact, :url => {:action => 'update', :id => @contact.id}) do |f| %>
+
+    <table summary="Page form fields">
+      <tr>
+        <th>name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>org</th>
+        <td><%= f.text_field(:org) %></td>
+      </tr>
+      <tr>
+        <th>street</th>
+        <td><%= f.text_field(:street) %></td>
+      </tr>
+      <tr>
+        <th>city</th>
+        <td><%= f.text_field(:city) %></td>
+      </tr>
+      <tr>
+        <th>state</th>
+        <td><%= f.text_field(:state) %></td>
+      </tr>
+      <tr>
+        <th>zip</th>
+        <td><%= f.text_field(:zip) %></td>
+      </tr>
+	  <tr>
+        <th>email</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update Page") %>
+    </div>
+
+  <% end %>
+</div>
+
