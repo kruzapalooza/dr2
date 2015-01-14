@@ -43,8 +43,9 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1.json
   def update
     respond_to do |format|
-      #  @contact.update_attributes(contact_params)
+      @contact = Contact.find(params[:id])
       if @contact.update(contact_params)
+      # if @contact.update_attributes(contact_params)
         format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
         format.json { render :show, status: :ok, location: @contact }
       else
@@ -61,6 +62,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
       format.json { head :no_content }
+      # redirect_to(:action => 'index')
     end
   end
 
@@ -75,7 +77,7 @@ class ContactsController < ApplicationController
       # params[:contact] = Contact.find(params[:id])
       params.require(:contact).permit(:name, :org, :street, :city, :state, :zip, :email)
       # params.permit(:name, :org, :street, :city, :state, :zip, :email)
-      params[:contact]
+      # params[:contact]
     end
 end
 
