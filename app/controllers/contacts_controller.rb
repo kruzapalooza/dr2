@@ -42,8 +42,9 @@ class ContactsController < ApplicationController
   # PATCH/PUT /contacts/1
   # PATCH/PUT /contacts/1.json
   def update
-    respond_to do |format|
-      @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:id])
+
+    respond_to do |format|  
       if @contact.update(contact_params)
       # if @contact.update_attributes(contact_params)
         format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
