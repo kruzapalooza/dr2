@@ -69,6 +69,7 @@ class DomainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def domain_params
-      params[:domain]
+      # params[:domain]
+      params.require(:domain).permit(:iana_id, :expire_date, :domain_name)
     end
 end

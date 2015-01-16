@@ -1,4 +1,4 @@
-<%= form_for(@domain) do |f| %>
+<%= form_for @domain do |f| %>
   <% if @domain.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@domain.errors.count, "error") %> prohibited this domain from being saved:</h2>
@@ -11,7 +11,26 @@
     </div>
   <% end %>
 
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "iana_id"
+    t.string   "expire_date"
+    t.string   "domain_name"
+
+    <div class="form-group">
+      iana_id
+      <%= f.text_field :iana_id, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      expire_date
+      <%= f.text_field :expire_date, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      domain_name
+      <%= f.text_field :domain_name, class: "form-control" %>
+    </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default" %>
   </div>
 <% end %>
